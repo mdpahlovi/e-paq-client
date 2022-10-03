@@ -1,6 +1,7 @@
 import React from "react";
 import { MdRateReview } from "react-icons/md";
 import { AiOutlineClear } from "react-icons/ai";
+import { removeToCard } from "../Utilities/addOrRemoveToDb";
 
 const OrderSummary = (props) => {
     const card = props.card;
@@ -10,8 +11,8 @@ const OrderSummary = (props) => {
 
     for (const product of card) {
         quantity += product.quantity;
-        totalPrice += product.price * quantity;
-        totalShippingCharge += product.shipping * quantity;
+        totalPrice += product.price * product.quantity;
+        totalShippingCharge += product.shipping * product.quantity;
     }
     const totalTax = totalPrice * 0.1;
     const total = totalPrice + totalShippingCharge + totalTax;
@@ -24,7 +25,7 @@ const OrderSummary = (props) => {
             <p>Total Shipping Cost: ${totalShippingCharge}</p>
             <p>Tax: ${totalTax.toFixed(2)}</p>
             <h3 className="text-xl text-center font-semibold">Grand Total: ${total}</h3>
-            <button className="icon btn bg-[#FF3030] text-white">
+            <button className="icon btn bg-[#FF3030] text-white" onClick={removeToCard}>
                 Clear Card
                 <AiOutlineClear />
             </button>

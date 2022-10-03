@@ -29,4 +29,8 @@ const removeToLoaclDb = (id) => {
     }
 };
 
-export { addToLoaclDb, removeToLoaclDb, getStroadCard };
+const removeToCard = () => {
+    localStorage.removeItem("card");
+};
+
+export { getStroadCard, addToLoaclDb, removeToLoaclDb, removeToCard };
