@@ -1,4 +1,5 @@
 import React from "react";
+import ShowRating from "../Utilities/ShowRating";
 import { MdShoppingCart } from "react-icons/md";
 
 const Product = ({ product, handelAddToCard }) => {
@@ -11,7 +12,12 @@ const Product = ({ product, handelAddToCard }) => {
                 <h4 className="text-lg font-semibold">Price: ${price}</h4>
                 <div className="mt-2">
                     <p className="text-sm">Manufacture: {seller}</p>
-                    <p className="text-sm">Rating: {ratings} star</p>
+                    <p className="icon justify-start">
+                        Rating:{" "}
+                        <span className="text-accent flex">
+                            <ShowRating ratings={ratings}></ShowRating>
+                        </span>
+                    </p>
                 </div>
             </div>
             <button className="icon btn bg-accentLight rounded-t-none" onClick={() => handelAddToCard(product)}>
