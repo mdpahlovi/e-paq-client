@@ -3,11 +3,11 @@ import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare } from "react-icon
 
 const Footer = () => {
     return (
-        <div className="bg-dark section-gap content-gap gap-10 text-light">
-            <div className="my-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10">
+        <div className="bg-dark section-gap content-gap gap-4 sm:gap-6 lg:gap-10 text-light">
+            <div className="my-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-4 sm:gap-6 lg:gap-10">
                 <div className="content-gap gap-2 col-span-full lg:col-auto">
                     <a href="/" className="text-2xl font-bold">
-                        Company
+                        E-PAQ
                     </a>
                     <p>
                         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
@@ -19,15 +19,21 @@ const Footer = () => {
                     </p>
                 </div>
                 <div className="content-gap gap-2">
-                    <p className="font-bold">Contacts</p>
-                    <a href="tel:850-123-5021">Phone: 850-123-5021</a>
-                    <a href="mailto:info@lorem.mail">Email: info@lorem.mail</a>
-                    <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">
-                        Address: 312 Lovely Street, NY
-                    </a>
+                    <p className="text-2xl font-bold">Contacts</p>
+                    <h5>
+                        Phone : <a href="tel:01736817612"> 01736817612</a>
+                    </h5>
+                    <h5>
+                        Email : <a href="mailto:mdpahlovi07@gmail.com"> mdpahlovi07@gmail.com</a>
+                    </h5>
+                    <h5>
+                        <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">
+                            Address : 312 C&B Road, Barisal, Bangladesh.
+                        </a>
+                    </h5>
                 </div>
                 <div className="content-gap">
-                    <span className="font-bold">Social</span>
+                    <span className="text-2xl font-bold">Social</span>
                     <div className="flex gap-2">
                         <a href="/" className="text-2xl">
                             <AiFillFacebook />
