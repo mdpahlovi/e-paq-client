@@ -18,7 +18,7 @@ const OrderSummary = (props) => {
     const total = totalPrice + totalShippingCharge + totalTax;
 
     return (
-        <div className="w-full sm:w-64 fixed sm:sticky sm:top-16 md:top-20 bottom-0 left-0 bg-accentLight p-5 content-gap rounded-lg">
+        <div className="w-full sm:w-64 fixed sm:sticky sm:top-16 lg:top-20 bottom-0 left-0 bg-accentLight p-5 content-gap rounded-lg">
             <h3 className="text-xl text-center font-semibold">Order Summary</h3>
             <p>Selected Items: {quantity}</p>
             <p>Total Price: ${totalPrice}</p>
