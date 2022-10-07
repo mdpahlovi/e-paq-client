@@ -29,9 +29,6 @@ const Navbar = () => {
                 >
                     <div className="flex flex-col lg:flex-row justify-end items-center gap-x-5 gap-y-3">
                         <Link to="/" className="text-light">
-                            Home
-                        </Link>
-                        <Link to="order" className="text-light">
                             Order
                         </Link>
                         <Link to="review" className="text-light">

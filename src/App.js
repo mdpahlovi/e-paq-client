@@ -2,8 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./layouts/Main";
 import Hero from "./components/Hero";
 import Products from "./components/Products";
-import Order from "./components/Order";
-import Review from "./components/Review";
+import OrderReview from "./components/OrderReview";
 import Inventory from "./components/Inventory";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -25,12 +24,8 @@ function App() {
                     ),
                 },
                 {
-                    path: "order",
-                    element: <Order></Order>,
-                },
-                {
                     path: "review",
-                    element: <Review></Review>,
+                    element: <OrderReview></OrderReview>,
                 },
                 {
                     path: "inventory",
