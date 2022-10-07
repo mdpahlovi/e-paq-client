@@ -7,6 +7,7 @@ import Inventory from "./components/Inventory";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
+import { loadData } from "./Utilities/loadData";
 
 function App() {
     const router = createBrowserRouter([
@@ -25,6 +26,7 @@ function App() {
                 },
                 {
                     path: "review",
+                    loader: loadData,
                     element: <OrderReview></OrderReview>,
                 },
                 {

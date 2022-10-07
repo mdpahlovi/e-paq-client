@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { addToLoaclDb, getStroadCard } from "../Utilities/addOrRemoveToDb";
 import Product from "./Product";
 import OrderSummary from "./OrderSummary";
-import { SiClickup } from "react-icons/si";
-import { GoEyeClosed } from "react-icons/go";
 
 const Products = () => {
     // Load Data
@@ -48,9 +46,6 @@ const Products = () => {
         addToLoaclDb(selectedProduct.id);
     };
 
-    // Toggle Summary Tab
-    const [toggle, setToggle] = useState(true);
-
     return (
         <div className="my-container section-gap content-gap">
             <h1 className="heading-text text-center">
@@ -66,16 +61,8 @@ const Products = () => {
                         <Product key={product.id} product={product} handelAddToCard={handelAddToCard}></Product>
                     ))}
                 </div>
-                <div className={`${toggle ? "hidden" : "block"} sm:block`}>
-                    <OrderSummary card={card}></OrderSummary>
-                </div>
+                <OrderSummary card={card}></OrderSummary>
             </div>
-            <span
-                className="fixed bottom-2 right-2 text-2xl border-2 border-dark rounded-full p-1 cursor-pointer sm:hidden"
-                onClick={() => setToggle(!toggle)}
-            >
-                {toggle ? <SiClickup /> : <GoEyeClosed />}
-            </span>
         </div>
     );
 };
