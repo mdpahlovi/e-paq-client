@@ -17,7 +17,7 @@ const OrderReview = () => {
             <div className="flex gap-5">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
                     {initialCart.map((selectedProduct) => (
-                        <Review product={selectedProduct}></Review>
+                        <Review key={selectedProduct.id} product={selectedProduct}></Review>
                     ))}
                 </div>
                 <OrderSummary card={initialCart}></OrderSummary>
