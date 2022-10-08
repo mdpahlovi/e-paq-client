@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Logo from "../images/logo.png";
 import { CgMenuRight, CgClose } from "react-icons/cg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const [open, setOpen] = useState(true);
+
+    const activeNavLink = "text-lg text-light font-bold";
+    const normalNavLink = "text-light";
 
     return (
         <nav className="bg-dark sticky top-0 z-10">
@@ -28,24 +31,27 @@ const Navbar = () => {
                     } lg:block lg:translate-y-0`}
                 >
                     <div className="flex flex-col lg:flex-row justify-end items-center gap-x-5 gap-y-3">
-                        <Link to="/" className="text-light">
+                        <NavLink to="/" className={({ isActive }) => (isActive ? activeNavLink : normalNavLink)} end>
                             Order
-                        </Link>
-                        <Link to="review" className="text-light">
+                        </NavLink>
+                        <NavLink to="review" className={({ isActive }) => (isActive ? activeNavLink : normalNavLink)}>
                             Order Review
-                        </Link>
-                        <Link to="inventory" className="text-light">
+                        </NavLink>
+                        <NavLink
+                            to="inventory"
+                            className={({ isActive }) => (isActive ? activeNavLink : normalNavLink)}
+                        >
                             Manage Inventory
-                        </Link>
-                        <Link to="about" className="text-light">
+                        </NavLink>
+                        <NavLink to="about" className={({ isActive }) => (isActive ? activeNavLink : normalNavLink)}>
                             About
-                        </Link>
-                        <Link to="contact" className="text-light">
+                        </NavLink>
+                        <NavLink to="contact" className={({ isActive }) => (isActive ? activeNavLink : normalNavLink)}>
                             Contact
-                        </Link>
-                        <Link to="login" className="btn btn-primary">
+                        </NavLink>
+                        <NavLink to="login" className="btn btn-primary">
                             Login
-                        </Link>
+                        </NavLink>
                     </div>
                 </div>
             </div>
