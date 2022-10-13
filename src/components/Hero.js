@@ -6,7 +6,7 @@ const Hero = () => {
         <header className="my-container section-gap grid grid-cols-1 md:grid-cols-[auto_auto] items-center gap-y-6 sm:gap-y-10 md:gap-0">
             <div className="content-gap">
                 <h1 className="heading-text">
-                    Sale up to <span className="text-accent">70% off</span>
+                    Sale up to <span className="text-primary">70% off</span>
                 </h1>
                 <h1 className="heading-text">New Collection For Fall</h1>
                 <p>Discover all the new arrivals of ready-to-wear collection.</p>

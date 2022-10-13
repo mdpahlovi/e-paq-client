@@ -14,13 +14,13 @@ const Product = ({ product, handelAddToCard }) => {
                     <p className="text-sm">Manufacture: {seller}</p>
                     <p className="icon justify-start">
                         Rating:{" "}
-                        <span className="text-accent flex">
+                        <span className="text-primary flex">
                             <ShowRating ratings={ratings}></ShowRating>
                         </span>
                     </p>
                 </div>
             </div>
-            <button className="icon btn bg-accentLight rounded-t-none" onClick={() => handelAddToCard(product)}>
+            <button className="icon btn btn-success rounded-t-none" onClick={() => handelAddToCard(product)}>
                 Add To Card
                 <span>
                     <MdShoppingCart />

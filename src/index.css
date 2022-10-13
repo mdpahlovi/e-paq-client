@@ -18,13 +18,4 @@
     .icon {
         @apply flex justify-center items-center gap-1;
     }
-    .btn {
-        @apply px-4 py-2 font-semibold rounded-lg;
-    }
-    .btn-primary {
-        @apply bg-accent border border-accent text-light hover:bg-transparent hover:text-accent duration-300;
-    }
-    .btn-secondary {
-        @apply bg-light border border-accent text-accent hover:bg-accent hover:text-light duration-300;
-    }
 }

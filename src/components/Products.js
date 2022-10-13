@@ -49,7 +49,7 @@ const Products = () => {
     return (
         <div className="my-container section-gap content-gap">
             <h1 className="heading-text text-center">
-                Our Latest <span className="text-accent">Collection</span>
+                Our Latest <span className="text-primary">Collection</span>
             </h1>
             <p className="max-w-xl mx-auto text-center max-h-[72px] overflow-hidden">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore assumenda ut neque. Illo ipsa
