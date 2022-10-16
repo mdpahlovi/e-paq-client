@@ -2,50 +2,55 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./layouts/Main";
 import Hero from "./components/Hero";
 import Products from "./components/Products";
+import { loadData } from "./Utilities/loadData";
 import OrderReview from "./components/OrderReview";
 import Inventory from "./components/Inventory";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Login from "./components/Login";
-import { loadData } from "./Utilities/loadData";
+import LogIn from "./components/LogIn";
+import SignUp from "./components/SignUp";
 
 function App() {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Main></Main>,
+            element: <Main />,
             children: [
                 {
                     path: "/",
                     element: (
                         <>
                             <Hero></Hero>
-                            <Products></Products>
+                            <Products />
                         </>
                     ),
                 },
                 {
                     path: "review",
                     loader: loadData,
-                    element: <OrderReview></OrderReview>,
+                    element: <OrderReview />,
                 },
                 {
                     path: "inventory",
-                    element: <Inventory></Inventory>,
+                    element: <Inventory />,
                 },
                 {
                     path: "about",
-                    element: <About></About>,
+                    element: <About />,
                 },
                 {
                     path: "contact",
-                    element: <Contact></Contact>,
+                    element: <Contact />,
+                },
+                {
+                    path: "login",
+                    element: <LogIn />,
+                },
+                {
+                    path: "signup",
+                    element: <SignUp />,
                 },
             ],
-        },
-        {
-            path: "login",
-            element: <Login></Login>,
         },
     ]);
     return (

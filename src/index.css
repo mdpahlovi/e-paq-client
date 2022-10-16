@@ -7,7 +7,7 @@
         @apply container mx-auto px-6;
     }
     .section-gap {
-        @apply py-6 sm:py-10 lg:py-16;
+        @apply py-12 sm:py-14 lg:py-16;
     }
     .content-gap {
         @apply flex flex-col gap-3;

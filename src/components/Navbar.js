@@ -6,7 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
     const [open, setOpen] = useState(true);
 
-    const navLink = ({ isActive }) => (isActive ? "text-lg text-light font-bold" : "text-light");
+    const navLink = ({ isActive }) => (isActive ? "font-bold underline" : "");
     const nevMenu = `bg-accent w-full lg:w-auto fixed lg:static top-16 left-0 pb-5 lg:pb-0 transition-all duration-500 z-[1] ${
         open ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
     } lg:opacity-100 lg:translate-y-0`;

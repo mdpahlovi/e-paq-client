@@ -56,7 +56,7 @@ const Products = () => {
     };
 
     return (
-        <div className="my-container section-gap content-gap">
+        <div className="my-container pt-0 section-gap content-gap">
             <h1 className="heading-text text-center">
                 Our Latest <span className="text-primary">Collection</span>
             </h1>

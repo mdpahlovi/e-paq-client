@@ -3,8 +3,8 @@ import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare } from "react-icon
 
 const Footer = () => {
     return (
-        <div className="bg-accent section-gap content-gap gap-4 sm:gap-6 lg:gap-10 text-base-100">
-            <div className="my-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-4 sm:gap-6 lg:gap-10">
+        <div className="bg-accent section-gap content-gap gap-8 sm:gap-10 lg:gap-12 text-base-100">
+            <div className="my-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-6 sm:gap-8 lg:gap-10">
                 <div className="content-gap gap-2 col-span-full lg:col-auto">
                     <a href="/" className="text-2xl font-bold">
                         E-PAQ
