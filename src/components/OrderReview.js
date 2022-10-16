@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { removeToCard } from "../Utilities/addOrRemoveToDb";
 import OrderSummary from "./OrderSummary";
 import Review from "./Review";
 
 const OrderReview = () => {
     const { initialCart } = useLoaderData();
+
+    const [card, setCard] = useState(initialCart);
+
+    // Show order review btn in summary
+    const toggleOrderReviewBtn = "hidden";
+
+    // Remove All Card to display
+    const removeAll = () => {
+        setCard([]);
+        removeToCard();
+    };
+
     return (
         <div className="my-container section-gap content-gap">
             <h1 className="heading-text text-center">
@@ -16,11 +29,15 @@ const OrderReview = () => {
             </p>
             <div className="flex gap-5">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
-                    {initialCart.map((selectedProduct) => (
+                    {card.map((selectedProduct) => (
                         <Review key={selectedProduct.id} product={selectedProduct}></Review>
                     ))}
                 </div>
-                <OrderSummary card={initialCart}></OrderSummary>
+                <OrderSummary
+                    card={card}
+                    removeAll={removeAll}
+                    toggleOrderReviewBtn={toggleOrderReviewBtn}
+                ></OrderSummary>
             </div>
         </div>
     );

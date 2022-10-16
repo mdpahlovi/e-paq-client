@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { removeToCard } from "../Utilities/addOrRemoveToDb";
 import { MdRateReview } from "react-icons/md";
 import { AiOutlineClear } from "react-icons/ai";
 import { SiClickup } from "react-icons/si";
 import { GoEyeClosed } from "react-icons/go";
+import { Link } from "react-router-dom";
 
-const OrderSummary = ({ card }) => {
+const OrderSummary = ({ card, removeAll, toggleOrderReviewBtn }) => {
     // Calculation
     let totalPrice = 0;
     let totalShippingCharge = 0;
@@ -32,14 +32,14 @@ const OrderSummary = ({ card }) => {
                     <p>Total Shipping Cost: ${totalShippingCharge}</p>
                     <p>Tax: ${totalTax.toFixed(2)}</p>
                     <h3 className="text-xl text-center font-semibold">Grand Total: ${total}</h3>
-                    <button className="icon btn btn-error text-white" onClick={removeToCard}>
+                    <button className="icon btn btn-error text-white" onClick={removeAll}>
                         Clear Card
                         <AiOutlineClear />
                     </button>
-                    <button className="icon btn btn-info text-white">
+                    <Link to="review" className={`icon btn btn-info text-white ${toggleOrderReviewBtn}`}>
                         Review Order
                         <MdRateReview />
-                    </button>
+                    </Link>
                 </div>
             </div>
             <span

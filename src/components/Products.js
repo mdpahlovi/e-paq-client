@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { addToLoaclDb, getStroadCard } from "../Utilities/addOrRemoveToDb";
+import { addToLoaclDb, getStroadCard, removeToCard } from "../Utilities/addOrRemoveToDb";
 import Product from "./Product";
 import OrderSummary from "./OrderSummary";
 
 const Products = () => {
+    // Show order review btn in summary
+    const toggleOrderReviewBtn = "flex";
+
     // Load Data
     const [products, setProducts] = useState([]);
     useEffect(() => {
@@ -46,6 +49,12 @@ const Products = () => {
         addToLoaclDb(selectedProduct.id);
     };
 
+    // Remove Card to display
+    const removeAll = () => {
+        setCard([]);
+        removeToCard();
+    };
+
     return (
         <div className="my-container section-gap content-gap">
             <h1 className="heading-text text-center">
@@ -61,7 +70,11 @@ const Products = () => {
                         <Product key={product.id} product={product} handelAddToCard={handelAddToCard}></Product>
                     ))}
                 </div>
-                <OrderSummary card={card}></OrderSummary>
+                <OrderSummary
+                    card={card}
+                    removeAll={removeAll}
+                    toggleOrderReviewBtn={toggleOrderReviewBtn}
+                ></OrderSummary>
             </div>
         </div>
     );
