@@ -2,7 +2,7 @@ import React from "react";
 import ShowRating from "../Utilities/ShowRating";
 import { MdShoppingCart } from "react-icons/md";
 
-const Product = ({ product, handelAddToCard }) => {
+const ShopCard = ({ product, handelAddToCard }) => {
     const { img, name, price, seller, ratings } = product;
     return (
         <div className="border rounded-lg flex flex-col justify-between">
@@ -30,4 +30,4 @@ const Product = ({ product, handelAddToCard }) => {
     );
 };
 
-export default Product;
+export default ShopCard;

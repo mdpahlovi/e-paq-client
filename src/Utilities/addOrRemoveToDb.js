@@ -18,7 +18,7 @@ const getStroadCard = () => {
     return card;
 };
 
-const removeToLoaclDb = (id) => {
+const removeSeletedCardToDB = (id) => {
     const stroedCard = localStorage.getItem("card");
     if (stroedCard) {
         const card = JSON.parse(stroedCard);
@@ -29,8 +29,8 @@ const removeToLoaclDb = (id) => {
     }
 };
 
-const removeToCard = () => {
+const removeAllToDB = () => {
     localStorage.removeItem("card");
 };
 
-export { getStroadCard, addToLoaclDb, removeToLoaclDb, removeToCard };
+export { getStroadCard, addToLoaclDb, removeSeletedCardToDB, removeAllToDB };

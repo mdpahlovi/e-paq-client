@@ -1,10 +1,10 @@
 import React from "react";
 import { RiDeleteBin5Fill, RiArrowDownCircleFill, RiArrowUpCircleFill } from "react-icons/ri";
 
-const Review = ({ product, removeThisCard }) => {
+const ReviewCard = ({ product, removeThisCard }) => {
     const { id, img, name, price, shipping, quantity } = product;
     return (
-        <div className="p-3 flex gap-3 items-center border rounded-lg">
+        <div className="p-3 h-max flex gap-3 items-center border rounded-lg">
             <img className="w-32 rounded-lg" src={img} alt="" />
             <div className="w-full">
                 <h5 className="text-lg font-bold line-clamp-2 group-hover:line-clamp-none">{name}</h5>
@@ -33,4 +33,4 @@ const Review = ({ product, removeThisCard }) => {
     );
 };
 
-export default Review;
+export default ReviewCard;

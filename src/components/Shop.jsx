@@ -1,38 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { addToLoaclDb, getStroadCard, removeToCard } from "../Utilities/addOrRemoveToDb";
-import Product from "./Product";
+import React, { useState } from "react";
+import ShopCard from "./ShopCard";
 import OrderSummary from "./OrderSummary";
+import { addToLoaclDb, removeAllToDB } from "../Utilities/addOrRemoveToDb";
 import { MdRateReview } from "react-icons/md";
+import { useLoaderData } from "react-router-dom";
 
-const Products = () => {
-    const dynamicBtn = { route: "review", text: "Review Order", icon: <MdRateReview /> };
+const Shop = () => {
+    const dynamicBtn = { route: "/review", text: "Review Order", icon: <MdRateReview /> };
 
     // Load Data
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        const url = "products.json";
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => setProducts(data));
-    }, []);
-
-    // LocalStored Card
-    useEffect(() => {
-        const stroadCard = getStroadCard();
-        const savedCard = [];
-        for (const id in stroadCard) {
-            const addedProduct = products.find((product) => product.id === id);
-            if (addedProduct) {
-                const quantity = stroadCard[id];
-                addedProduct.quantity = quantity;
-                savedCard.push(addedProduct);
-            }
-        }
-        setCard(savedCard);
-    }, [products]);
+    const { products, initialCart } = useLoaderData();
+    const [card, setCard] = useState(initialCart);
 
     // SetCard To Display
-    const [card, setCard] = useState([]);
     const handelAddToCard = (selectedProduct) => {
         let newCard = [];
         const exists = card.find((product) => product === selectedProduct.id);
@@ -44,7 +24,6 @@ const Products = () => {
             selectedProduct += 1;
             newCard = [...rest, selectedProduct];
         }
-
         setCard(newCard);
         addToLoaclDb(selectedProduct.id);
     };
@@ -52,7 +31,7 @@ const Products = () => {
     // Remove Card to display
     const removeAll = () => {
         setCard([]);
-        removeToCard();
+        removeAllToDB();
     };
 
     return (
@@ -67,7 +46,7 @@ const Products = () => {
             <div className="mt-3 grid grid-cols-1 sm:grid-cols-[auto_16rem] gap-5">
                 <div className="grid gap-5" style={{ gridTemplateColumns: "repeat( auto-fit, minmax(200px, 1fr) )" }}>
                     {products.map((product) => (
-                        <Product key={product.id} product={product} handelAddToCard={handelAddToCard}></Product>
+                        <ShopCard key={product.id} product={product} handelAddToCard={handelAddToCard}></ShopCard>
                     ))}
                 </div>
                 <OrderSummary card={card} removeAll={removeAll} dynamicBtn={dynamicBtn}></OrderSummary>
@@ -76,4 +55,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Shop;

@@ -1,15 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { loadData } from "./Utilities/loadData";
 import Main from "./layouts/Main";
 import Hero from "./components/Hero";
-import Products from "./components/Products";
-import { loadData } from "./Utilities/loadData";
-import OrderReview from "./components/OrderReview";
+import Shop from "./components/Shop";
+import Review from "./components/Review";
+import CheckOut from "./components/CheckOut";
 import Inventory from "./components/Inventory";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
-import Chechout from "./components/Chechout";
 
 function App() {
     const router = createBrowserRouter([
@@ -19,25 +19,26 @@ function App() {
             children: [
                 {
                     path: "/",
+                    loader: loadData,
                     element: (
                         <>
                             <Hero></Hero>
-                            <Products />
+                            <Shop />
                         </>
                     ),
                 },
                 {
                     path: "review",
                     loader: loadData,
-                    element: <OrderReview />,
+                    element: <Review />,
                 },
                 {
                     path: "inventory",
                     element: <Inventory />,
                 },
                 {
-                    path: "chechout",
-                    element: <Chechout />,
+                    path: "checkout",
+                    element: <CheckOut />,
                 },
                 {
                     path: "about",

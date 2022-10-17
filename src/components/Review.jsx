@@ -1,28 +1,27 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
-import { removeToCard, removeToLoaclDb } from "../Utilities/addOrRemoveToDb";
+import ReviewCard from "./ReviewCard";
 import OrderSummary from "./OrderSummary";
-import Review from "./Review";
+import { useLoaderData } from "react-router-dom";
+import { removeAllToDB, removeSeletedCardToDB } from "../Utilities/addOrRemoveToDb";
 import { BsCartCheckFill } from "react-icons/bs";
 
-const OrderReview = () => {
-    const dynamicBtn = { route: "chechout", text: "Proceed Checkout", icon: <BsCartCheckFill /> };
+const Review = () => {
+    const dynamicBtn = { route: "/checkout", text: "Proceed Checkout", icon: <BsCartCheckFill /> };
 
     const { initialCart } = useLoaderData();
-
     const [card, setCard] = useState(initialCart);
 
     // Remove This Card to display
     const removeThisCard = (id) => {
         const restCard = card.filter((card) => card.id !== id);
         setCard(restCard);
-        removeToLoaclDb(id);
+        removeSeletedCardToDB(id);
     };
 
     // Remove All Card to display
     const removeAll = () => {
         setCard([]);
-        removeToCard();
+        removeAllToDB();
     };
 
     return (
@@ -37,11 +36,11 @@ const OrderReview = () => {
             <div className="flex gap-5">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
                     {card.map((selectedProduct) => (
-                        <Review
+                        <ReviewCard
                             key={selectedProduct.id}
                             product={selectedProduct}
                             removeThisCard={removeThisCard}
-                        ></Review>
+                        ></ReviewCard>
                     ))}
                 </div>
                 <OrderSummary card={card} removeAll={removeAll} dynamicBtn={dynamicBtn}></OrderSummary>
@@ -50,4 +49,4 @@ const OrderReview = () => {
     );
 };
 
-export default OrderReview;
+export default Review;
