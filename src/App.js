@@ -9,6 +9,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
+import Chechout from "./components/Chechout";
 
 function App() {
     const router = createBrowserRouter([
@@ -33,6 +34,10 @@ function App() {
                 {
                     path: "inventory",
                     element: <Inventory />,
+                },
+                {
+                    path: "chechout",
+                    element: <Chechout />,
                 },
                 {
                     path: "about",

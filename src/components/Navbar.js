@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../images/logo.png";
 import { CgMenuRight, CgClose } from "react-icons/cg";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../context/UserContext";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
     const [open, setOpen] = useState(true);
 
     const navLink = ({ isActive }) => (isActive ? "font-bold underline" : "");
@@ -39,9 +42,15 @@ const Navbar = () => {
                         <NavLink to="contact" className={navLink}>
                             Contact
                         </NavLink>
-                        <NavLink to="login" className="btn btn-primary">
-                            Login
-                        </NavLink>
+                        {user?.uid ? (
+                            <button onClick={logOut} className="btn btn-primary">
+                                Sign Out
+                            </button>
+                        ) : (
+                            <NavLink to="login" className="btn btn-primary">
+                                Log In
+                            </NavLink>
+                        )}
                     </div>
                 </div>
             </div>

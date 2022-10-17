@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsGoogle, BsFacebook, BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/UserContext";
 
 const LogIn = () => {
+    const { signIn } = useContext(AuthContext);
+
+    const handelSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+            })
+            .catch((error) => console.error(error));
+    };
     return (
-        <section className="section-gap flex justify-center items-center">
+        <section onSubmit={handelSubmit} className="section-gap flex justify-center items-center">
             <div className="w-full px-6 xs:w-[448px]">
                 <form className="content-gap">
                     <div className="flex flex-row items-center gap-3">

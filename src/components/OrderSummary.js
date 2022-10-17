@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { MdRateReview } from "react-icons/md";
 import { AiOutlineClear } from "react-icons/ai";
 import { SiClickup } from "react-icons/si";
 import { GoEyeClosed } from "react-icons/go";
 import { Link } from "react-router-dom";
 
-const OrderSummary = ({ card, removeAll, toggleOrderReviewBtn }) => {
+const OrderSummary = ({ card, removeAll, dynamicBtn }) => {
+    const { route, text, icon } = dynamicBtn;
+
     // Calculation
     let totalPrice = 0;
     let totalShippingCharge = 0;
@@ -36,9 +37,9 @@ const OrderSummary = ({ card, removeAll, toggleOrderReviewBtn }) => {
                         Clear Card
                         <AiOutlineClear />
                     </button>
-                    <Link to="review" className={`icon btn btn-info text-white ${toggleOrderReviewBtn}`}>
-                        Review Order
-                        <MdRateReview />
+                    <Link to={route} className="icon btn btn-info text-white">
+                        {text}
+                        {icon}
                     </Link>
                 </div>
             </div>

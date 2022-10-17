@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { addToLoaclDb, getStroadCard, removeToCard } from "../Utilities/addOrRemoveToDb";
 import Product from "./Product";
 import OrderSummary from "./OrderSummary";
+import { MdRateReview } from "react-icons/md";
 
 const Products = () => {
-    // Show order review btn in summary
-    const toggleOrderReviewBtn = "flex";
+    const dynamicBtn = { route: "review", text: "Review Order", icon: <MdRateReview /> };
 
     // Load Data
     const [products, setProducts] = useState([]);
@@ -70,11 +70,7 @@ const Products = () => {
                         <Product key={product.id} product={product} handelAddToCard={handelAddToCard}></Product>
                     ))}
                 </div>
-                <OrderSummary
-                    card={card}
-                    removeAll={removeAll}
-                    toggleOrderReviewBtn={toggleOrderReviewBtn}
-                ></OrderSummary>
+                <OrderSummary card={card} removeAll={removeAll} dynamicBtn={dynamicBtn}></OrderSummary>
             </div>
         </div>
     );

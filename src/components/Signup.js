@@ -1,12 +1,44 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { BsGoogle, BsFacebook, BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/UserContext";
 
 const SignUp = () => {
+    const [error, setError] = useState(null);
+    const { createUser } = useContext(AuthContext);
+
+    const handelSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = `${form.fastName.value} ${form.lastName.value}`;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+
+        console.log(name);
+
+        if (password.length < 6) {
+            setError("PassWord sould be 6 cherecter or more");
+            return;
+        }
+        if (password !== confirmPassword) {
+            setError("Your Password Didn't Match");
+            return;
+        }
+
+        createUser(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+            })
+            .catch((error) => console.error(error));
+    };
+
     return (
         <section className="section-gap flex justify-center items-center">
             <div className="w-full px-6 xs:w-[448px]">
-                <form className="content-gap">
+                <form onSubmit={handelSubmit} className="content-gap">
                     <div className="flex flex-row items-center gap-3">
                         <p className="text-lg mb-0 mr-4">Sign Up with :</p>
                         <button className="btn btn-circle btn-primary text-2xl">
@@ -28,14 +60,12 @@ const SignUp = () => {
                             name="fastName"
                             placeholder="Fast Name"
                             className="mb-1 input input-primary w-full"
-                            required
                         />
                         <input
                             type="text"
                             name="lastName"
                             placeholder="Last Name"
                             className="mb-1 input input-primary w-full"
-                            required
                         />
                     </div>
                     <input
@@ -52,6 +82,13 @@ const SignUp = () => {
                         className="input input-primary w-full"
                         required
                     />
+                    <input
+                        type="password"
+                        name="confirmPassword"
+                        placeholder="Confirm Password"
+                        className="input input-primary w-full"
+                        required
+                    />
                     <div className="flex justify-between items-center">
                         <div className="form-control">
                             <label className="label cursor-pointer">
@@ -63,13 +100,14 @@ const SignUp = () => {
                             Forgot password?
                         </a>
                     </div>
-                    <button className="btn btn-primary">SignUp</button>
+                    <input type="submit" value="Sign Up" className="btn btn-primary" />
                     <p className="text-sm font-semibold">
                         Don't have an account?
                         <Link to="/login" className="ml-2 uppercase underline text-primary">
                             LogIn
                         </Link>
                     </p>
+                    <p>{error}</p>
                 </form>
             </div>
         </section>

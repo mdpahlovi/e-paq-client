@@ -2,16 +2,19 @@ import React from "react";
 import { RiDeleteBin5Fill, RiArrowDownCircleFill, RiArrowUpCircleFill } from "react-icons/ri";
 
 const Review = ({ product, removeThisCard }) => {
-    const { id, img, name, price, shipping } = product;
+    const { id, img, name, price, shipping, quantity } = product;
     return (
-        <div className="h-max grid grid-cols-[8rem_auto_2rem] gap-3 items-center border rounded-lg">
-            <img className="object-cover rounded-lg md:w-32" src={img} alt="" />
-            <div className="group">
+        <div className="p-3 flex gap-3 items-center border rounded-lg">
+            <img className="w-32 rounded-lg" src={img} alt="" />
+            <div className="w-full">
                 <h5 className="text-lg font-bold line-clamp-2 group-hover:line-clamp-none">{name}</h5>
-                <p className="group-hover:hidden md:group-hover:block">
+                <p className="group-hover:hidden text-lg font-bold text-primary">
+                    Q<span className="hidden xs:inline-block">uantity</span> : {quantity}
+                </p>
+                <p className="group-hover:hidden">
                     P<span className="hidden xs:inline-block">rice</span> : ${price}
                 </p>
-                <p className="group-hover:hidden md:group-hover:block">
+                <p className="group-hover:hidden">
                     S<span className="hidden xs:inline-block">hipping</span> : ${shipping}
                 </p>
             </div>

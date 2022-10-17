@@ -3,14 +3,14 @@ import { useLoaderData } from "react-router-dom";
 import { removeToCard, removeToLoaclDb } from "../Utilities/addOrRemoveToDb";
 import OrderSummary from "./OrderSummary";
 import Review from "./Review";
+import { BsCartCheckFill } from "react-icons/bs";
 
 const OrderReview = () => {
+    const dynamicBtn = { route: "chechout", text: "Proceed Checkout", icon: <BsCartCheckFill /> };
+
     const { initialCart } = useLoaderData();
 
     const [card, setCard] = useState(initialCart);
-
-    // Show order review btn in summary
-    const toggleOrderReviewBtn = "hidden";
 
     // Remove This Card to display
     const removeThisCard = (id) => {
@@ -44,11 +44,7 @@ const OrderReview = () => {
                         ></Review>
                     ))}
                 </div>
-                <OrderSummary
-                    card={card}
-                    removeAll={removeAll}
-                    toggleOrderReviewBtn={toggleOrderReviewBtn}
-                ></OrderSummary>
+                <OrderSummary card={card} removeAll={removeAll} dynamicBtn={dynamicBtn}></OrderSummary>
             </div>
         </div>
     );
