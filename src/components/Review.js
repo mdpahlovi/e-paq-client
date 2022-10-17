@@ -1,8 +1,8 @@
 import React from "react";
 import { RiDeleteBin5Fill, RiArrowDownCircleFill, RiArrowUpCircleFill } from "react-icons/ri";
 
-const Review = ({ product }) => {
-    const { img, name, price, shipping } = product;
+const Review = ({ product, removeThisCard }) => {
+    const { id, img, name, price, shipping } = product;
     return (
         <div className="h-max grid grid-cols-[8rem_auto_2rem] gap-3 items-center border rounded-lg">
             <img className="object-cover rounded-lg md:w-32" src={img} alt="" />
@@ -19,7 +19,7 @@ const Review = ({ product }) => {
                 <button className="text-accent">
                     <RiArrowUpCircleFill />
                 </button>
-                <button className="text-[#FF3030]">
+                <button onClick={() => removeThisCard(id)} className="text-[#FF3030]">
                     <RiDeleteBin5Fill />
                 </button>
                 <button className="text-accent">

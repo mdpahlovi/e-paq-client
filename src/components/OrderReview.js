@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { removeToCard } from "../Utilities/addOrRemoveToDb";
+import { removeToCard, removeToLoaclDb } from "../Utilities/addOrRemoveToDb";
 import OrderSummary from "./OrderSummary";
 import Review from "./Review";
 
@@ -11,6 +11,13 @@ const OrderReview = () => {
 
     // Show order review btn in summary
     const toggleOrderReviewBtn = "hidden";
+
+    // Remove This Card to display
+    const removeThisCard = (id) => {
+        const restCard = card.filter((card) => card.id !== id);
+        setCard(restCard);
+        removeToLoaclDb(id);
+    };
 
     // Remove All Card to display
     const removeAll = () => {
@@ -30,7 +37,11 @@ const OrderReview = () => {
             <div className="flex gap-5">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
                     {card.map((selectedProduct) => (
-                        <Review key={selectedProduct.id} product={selectedProduct}></Review>
+                        <Review
+                            key={selectedProduct.id}
+                            product={selectedProduct}
+                            removeThisCard={removeThisCard}
+                        ></Review>
                     ))}
                 </div>
                 <OrderSummary
