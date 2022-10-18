@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/UserContext";
 
 const LogIn = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInByGoogle } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const loaction = useLocation();
@@ -26,12 +26,22 @@ const LogIn = () => {
             .catch((error) => console.error(error));
     };
 
+    const handelGoogleSignIn = () => {
+        signInByGoogle()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch((error) => console.error(error));
+    };
+
     return (
         <section onSubmit={handelSubmit} className="section-gap flex justify-center">
             <div className="w-full px-6 xs:w-[448px] content-gap">
                 <div className="flex items-center gap-3">
                     <p className="text-lg">Sign In with :</p>
-                    <button className="btn btn-circle btn-primary text-2xl">
+                    <button onClick={handelGoogleSignIn} className="btn btn-circle btn-primary text-2xl">
                         <BsGoogle />
                     </button>
                     <button className="btn btn-circle btn-primary text-2xl">
