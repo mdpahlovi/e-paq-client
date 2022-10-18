@@ -33,7 +33,7 @@ const Review = () => {
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore assumenda ut neque. Illo ipsa repellat numquam amet
                 possimus deserunt natus soluta cumque.
             </p>
-            <div className="flex gap-5">
+            <div className="flex justify-center gap-5">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
                     {card.map((selectedProduct) => (
                         <ReviewCard key={selectedProduct.id} product={selectedProduct} removeThisCard={removeThisCard}></ReviewCard>

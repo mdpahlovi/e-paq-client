@@ -21,12 +21,12 @@ const Navbar = () => {
                 <Link to="/">
                     <img className="w-20 lg:w-24" src={Logo} alt="" />
                 </Link>
+                <ToggleTheme />
                 <label className="lg:hidden swap swap-rotate text-3xl cursor-pointer z-[2]">
                     <input onClick={() => setOpen(!open)} type="checkbox" />
                     <CgMenuRight className="swap-off" />
                     <CgClose className="swap-on" />
                 </label>
-                <ToggleTheme className="z-[2]" />
                 <div className={nevMenu}>
                     <div className="flex flex-col lg:flex-row items-center gap-x-5 gap-y-3">
                         <NavLink to="/" className={navLink} end>
@@ -47,10 +47,18 @@ const Navbar = () => {
                         {user?.uid ? (
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="avatar w-10 cursor-pointer">
-                                    <img className="rounded-full" src="https://placeimg.com/192/192/people" alt="" />
+                                    <img
+                                        className="rounded-full"
+                                        src={`${user?.photoURL ? user.photoURL : "https://placeimg.com/192/192/people"}`}
+                                        alt=""
+                                    />
                                 </label>
-                                <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box w-max">
-                                    <button onClick={logOut} className="btn btn-primary">
+                                <div
+                                    tabIndex={0}
+                                    className="mt-2 dropdown-content menu gap-1 bg-base-100 text-base-content rounded-box w-max p-4 pt-3 border border-base-200"
+                                >
+                                    <h1 className="font-semibold">{user.displayName}</h1>
+                                    <button onClick={logOut} className="btn btn-sm btn-primary">
                                         Sign Out
                                     </button>
                                 </div>

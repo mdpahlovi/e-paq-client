@@ -14,7 +14,7 @@ const ToggleTheme = () => {
     };
     return (
         <>
-            <label className="swap swap-rotate">
+            <label className="swap swap-rotate z-[2]">
                 <input onClick={toggleTheme} type="checkbox" />
                 <MdLightMode className="swap-off text-3xl"></MdLightMode>
                 <MdDarkMode className="swap-on text-3xl"></MdDarkMode>
