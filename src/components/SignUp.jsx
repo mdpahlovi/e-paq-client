@@ -55,33 +55,11 @@ const SignUp = () => {
                         <p className="text-center font-semibold mx-4 mb-0">Or</p>
                     </div>
                     <div className="flex flex-col xs:flex-row gap-3">
-                        <input
-                            type="text"
-                            name="fastName"
-                            placeholder="Fast Name"
-                            className="mb-1 input input-primary w-full"
-                        />
-                        <input
-                            type="text"
-                            name="lastName"
-                            placeholder="Last Name"
-                            className="mb-1 input input-primary w-full"
-                        />
+                        <input type="text" name="fastName" placeholder="Fast Name" className="mb-1 input input-primary w-full" />
+                        <input type="text" name="lastName" placeholder="Last Name" className="mb-1 input input-primary w-full" />
                     </div>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        className="mb-1 input input-primary w-full"
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        className="input input-primary w-full"
-                        required
-                    />
+                    <input type="email" name="email" placeholder="Email" className="mb-1 input input-primary w-full" required />
+                    <input type="password" name="password" placeholder="Password" className="input input-primary w-full" required />
                     <input
                         type="password"
                         name="confirmPassword"
@@ -96,9 +74,7 @@ const SignUp = () => {
                                 <input type="checkbox" className="checkbox checkbox-primary" />
                             </label>
                         </div>
-                        <a href="#!" className="text-gray-800">
-                            Forgot password?
-                        </a>
+                        <a href="#!">Forgot password?</a>
                     </div>
                     <input type="submit" value="Sign Up" className="btn btn-primary" />
                     <p className="text-sm font-semibold">

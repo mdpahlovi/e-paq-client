@@ -4,7 +4,7 @@ import { RiDeleteBin5Fill, RiArrowDownCircleFill, RiArrowUpCircleFill } from "re
 const ReviewCard = ({ product, removeThisCard }) => {
     const { id, img, name, price, shipping, quantity } = product;
     return (
-        <div className="p-3 h-max flex gap-3 items-center border rounded-lg">
+        <div className="p-3 h-max flex gap-3 items-center border border-base-200 rounded-lg">
             <img className="w-32 rounded-lg" src={img} alt="" />
             <div className="w-full">
                 <h5 className="text-lg font-bold line-clamp-2 group-hover:line-clamp-none">{name}</h5>
@@ -19,13 +19,13 @@ const ReviewCard = ({ product, removeThisCard }) => {
                 </p>
             </div>
             <div className="flex flex-col gap-2 text-2xl">
-                <button className="text-accent">
+                <button>
                     <RiArrowUpCircleFill />
                 </button>
                 <button onClick={() => removeThisCard(id)} className="text-[#FF3030]">
                     <RiDeleteBin5Fill />
                 </button>
-                <button className="text-accent">
+                <button>
                     <RiArrowDownCircleFill />
                 </button>
             </div>

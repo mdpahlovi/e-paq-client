@@ -26,7 +26,7 @@ const OrderSummary = ({ card, removeAll, dynamicBtn }) => {
     return (
         <>
             <div className={`${toggle ? "hidden" : "block"} sm:block`}>
-                <div className="bg-success w-full sm:w-64 fixed sm:sticky sm:top-16 lg:top-20 bottom-0 left-0 p-5 content-gap rounded-lg">
+                <div className="bg-success w-full sm:w-64 fixed sm:sticky sm:top-16 lg:top-20 bottom-0 left-0 p-5 content-gap rounded-lg text-black">
                     <h3 className="text-xl text-center font-semibold">Order Summary</h3>
                     <p>Selected Items: {quantity}</p>
                     <p>Total Price: ${totalPrice}</p>

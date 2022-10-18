@@ -27,20 +27,16 @@ const Review = () => {
     return (
         <div className="my-container section-gap content-gap">
             <h1 className="heading-text text-center">
-                Your Selected <span className="text-accent">Product</span>
+                Your Selected <span className="text-primary">Product</span>
             </h1>
             <p className="max-w-xl mx-auto text-center max-h-[72px] overflow-hidden">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore assumenda ut neque. Illo ipsa
-                repellat numquam amet possimus deserunt natus soluta cumque.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore assumenda ut neque. Illo ipsa repellat numquam amet
+                possimus deserunt natus soluta cumque.
             </p>
             <div className="flex gap-5">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
                     {card.map((selectedProduct) => (
-                        <ReviewCard
-                            key={selectedProduct.id}
-                            product={selectedProduct}
-                            removeThisCard={removeThisCard}
-                        ></ReviewCard>
+                        <ReviewCard key={selectedProduct.id} product={selectedProduct} removeThisCard={removeThisCard}></ReviewCard>
                     ))}
                 </div>
                 <OrderSummary card={card} removeAll={removeAll} dynamicBtn={dynamicBtn}></OrderSummary>

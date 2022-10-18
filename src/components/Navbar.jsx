@@ -3,6 +3,7 @@ import Logo from "../images/logo.png";
 import { CgMenuRight, CgClose } from "react-icons/cg";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/UserContext";
+import ToggleTheme from "./ToggleTheme";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -15,8 +16,8 @@ const Navbar = () => {
     } lg:opacity-100 lg:translate-y-0`;
 
     return (
-        <nav className="bg-accent sticky top-0 z-10">
-            <div className="my-container h-16 lg:h-20 flex justify-between items-center text-base-100">
+        <nav className="bg-accent sticky top-0 z-10 border-b border-base-200">
+            <div className="my-container h-16 lg:h-20 flex justify-between items-center text-white">
                 <Link to="/">
                     <img className="w-20 lg:w-24" src={Logo} alt="" />
                 </Link>
@@ -25,6 +26,7 @@ const Navbar = () => {
                     <CgMenuRight className="swap-off" />
                     <CgClose className="swap-on" />
                 </label>
+                <ToggleTheme className="z-[2]" />
                 <div className={nevMenu}>
                     <div className="flex flex-col lg:flex-row items-center gap-x-5 gap-y-3">
                         <NavLink to="/" className={navLink} end>

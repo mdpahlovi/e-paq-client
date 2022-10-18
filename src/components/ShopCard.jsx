@@ -5,7 +5,7 @@ import { MdShoppingCart } from "react-icons/md";
 const ShopCard = ({ product, handelAddToCard }) => {
     const { img, name, price, seller, ratings } = product;
     return (
-        <div className="border rounded-lg flex flex-col justify-between">
+        <div className="border border-base-200 rounded-lg flex flex-col justify-between">
             <img className="rounded-t-lg w-auto" src={img} alt="" />
             <div className="flex flex-col gap-1 p-3">
                 <h3 className="text-lg font-semibold">{name}</h3>

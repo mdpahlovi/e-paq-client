@@ -45,20 +45,8 @@ const LogIn = () => {
                     <div className="flex items-center before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                         <p className="text-center font-semibold mx-4 mb-0">Or</p>
                     </div>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        className="mb-1 input input-primary w-full"
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        className="input input-primary w-full"
-                        required
-                    />
+                    <input type="email" name="email" placeholder="Email" className="mb-1 input input-primary w-full" required />
+                    <input type="password" name="password" placeholder="Password" className="input input-primary w-full" required />
                     <div className="flex justify-between items-center">
                         <div className="form-control">
                             <label className="label cursor-pointer">
@@ -66,9 +54,7 @@ const LogIn = () => {
                                 <input type="checkbox" className="checkbox checkbox-primary" />
                             </label>
                         </div>
-                        <a href="#!" className="text-gray-800">
-                            Forgot password?
-                        </a>
+                        <a href="#!">Forgot password?</a>
                     </div>
                     <button className="btn btn-primary">LogIn</button>
                     <p className="text-sm font-semibold">
