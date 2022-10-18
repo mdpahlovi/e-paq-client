@@ -43,9 +43,16 @@ const Navbar = () => {
                             Contact
                         </NavLink>
                         {user?.uid ? (
-                            <button onClick={logOut} className="btn btn-primary">
-                                Sign Out
-                            </button>
+                            <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className="avatar w-10 cursor-pointer">
+                                    <img className="rounded-full" src="https://placeimg.com/192/192/people" alt="" />
+                                </label>
+                                <div tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box w-max">
+                                    <button onClick={logOut} className="btn btn-primary">
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
                         ) : (
                             <NavLink to="login" className="btn btn-primary">
                                 Log In

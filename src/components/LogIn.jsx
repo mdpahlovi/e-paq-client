@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
 import { BsGoogle, BsFacebook, BsGithub } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/UserContext";
 
 const LogIn = () => {
     const { signIn } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const loaction = useLocation();
+    const from = loaction.state?.from?.pathname || "/";
 
     const handelSubmit = (event) => {
         event.preventDefault();
@@ -17,9 +21,11 @@ const LogIn = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch((error) => console.error(error));
     };
+
     return (
         <section onSubmit={handelSubmit} className="section-gap flex justify-center items-center">
             <div className="w-full px-6 xs:w-[448px]">

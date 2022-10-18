@@ -10,6 +10,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
+import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
     const router = createBrowserRouter([
@@ -38,7 +39,11 @@ function App() {
                 },
                 {
                     path: "checkout",
-                    element: <CheckOut />,
+                    element: (
+                        <PrivateRoute>
+                            <CheckOut />
+                        </PrivateRoute>
+                    ),
                 },
                 {
                     path: "about",
