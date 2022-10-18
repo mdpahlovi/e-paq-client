@@ -18,4 +18,10 @@
     .icon {
         @apply flex justify-center items-center gap-1;
     }
+    .vertical-line {
+        @apply flex items-center before:flex-1 before:border-t  after:flex-1 after:border-t;
+    }
+    .input-field {
+        @apply input input-primary w-full;
+    }
 }
