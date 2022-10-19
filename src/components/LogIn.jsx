@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/UserContext";
 
 const LogIn = () => {
-    const { signIn, signInByGoogle, signInByFacebook } = useContext(AuthContext);
+    const { signIn, signInByGoogle, signInByFacebook, signInByGithub } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const loaction = useLocation();
@@ -35,9 +35,17 @@ const LogIn = () => {
             })
             .catch((error) => console.error(error));
     };
-
     const handelFacebookSignIn = () => {
         signInByFacebook()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch((error) => console.error(error));
+    };
+    const handelGithubSignIn = () => {
+        signInByGithub()
             .then((result) => {
                 const user = result.user;
                 console.log(user);
@@ -57,7 +65,7 @@ const LogIn = () => {
                     <button onClick={handelFacebookSignIn} className="btn btn-circle btn-primary text-2xl">
                         <BsFacebook />
                     </button>
-                    <button className="btn btn-circle btn-primary text-2xl">
+                    <button onClick={handelGithubSignIn} className="btn btn-circle btn-primary text-2xl">
                         <BsGithub />
                     </button>
                 </div>

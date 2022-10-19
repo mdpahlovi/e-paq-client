@@ -21,12 +21,16 @@ const Navbar = () => {
                 <Link to="/">
                     <img className="w-20 lg:w-24" src={Logo} alt="" />
                 </Link>
-                <ToggleTheme />
-                <label className="lg:hidden swap swap-rotate text-3xl cursor-pointer z-[2]">
-                    <input onClick={() => setOpen(!open)} type="checkbox" />
-                    <CgMenuRight className="swap-off" />
-                    <CgClose className="swap-on" />
-                </label>
+                <div className="flex gap-5 z-[2]">
+                    <label className="lg:hidden swap swap-rotate text-3xl cursor-pointer z-[2]">
+                        <input onClick={() => setOpen(!open)} type="checkbox" />
+                        <CgMenuRight className="swap-off" />
+                        <CgClose className="swap-on" />
+                    </label>
+                    <div className="lg:hidden">
+                        <ToggleTheme />
+                    </div>
+                </div>
                 <div className={nevMenu}>
                     <div className="flex flex-col lg:flex-row items-center gap-x-5 gap-y-3">
                         <NavLink to="/" className={navLink} end>
@@ -68,6 +72,10 @@ const Navbar = () => {
                                 Log In
                             </NavLink>
                         )}
+
+                        <div className="hidden lg:block ml-1">
+                            <ToggleTheme />
+                        </div>
                     </div>
                 </div>
             </div>
