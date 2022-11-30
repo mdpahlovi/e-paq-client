@@ -1,5 +1,5 @@
 import React from "react";
-import ShowRating from "../Utilities/ShowRating";
+import ShowRating from "../utilities/ShowRating";
 import { MdShoppingCart } from "react-icons/md";
 
 const ShopCard = ({ product, handelAddToCard }) => {

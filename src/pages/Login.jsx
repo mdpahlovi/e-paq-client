@@ -3,7 +3,7 @@ import { BsGoogle, BsFacebook, BsGithub } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/UserContext";
 
-const LogIn = () => {
+const Login = () => {
     const { signIn, signInByGoogle, signInByFacebook, signInByGithub } = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -82,10 +82,10 @@ const LogIn = () => {
                         </label>
                         <Link>Forgot password?</Link>
                     </div>
-                    <button className="btn btn-primary">LogIn</button>
+                    <button className="btn btn-primary">Login</button>
                     <p className="text-sm font-semibold">
                         Don't have an account?
-                        <Link to="/signup" className="ml-2 uppercase underline text-primary">
+                        <Link to="/logout" className="ml-2 uppercase underline text-primary">
                             Sign Up
                         </Link>
                     </p>
@@ -95,4 +95,4 @@ const LogIn = () => {
     );
 };
 
-export default LogIn;
+export default Login;

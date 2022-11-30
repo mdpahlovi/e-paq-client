@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getThemeValue } from "../Utilities/getThemeValue";
+import { getThemeValue } from "../utilities/getThemeValue";
 
-const SignUp = () => {
+const Logout = () => {
     const { createUser } = useContext(AuthContext);
 
     const handelSubmit = (event) => {
@@ -58,7 +58,7 @@ const SignUp = () => {
                 <p className="text-sm font-semibold">
                     Don't have an account?
                     <Link to="/login" className="ml-2 uppercase underline text-primary">
-                        LogIn
+                        Login
                     </Link>
                 </p>
             </form>
@@ -66,4 +66,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default Logout;

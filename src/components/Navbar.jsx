@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import Logo from "../images/logo.png";
+import Logo from "../assets/logo.png";
 import { CgMenuRight, CgClose } from "react-icons/cg";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/UserContext";
@@ -27,7 +27,7 @@ const Navbar = () => {
                         <CgMenuRight className="swap-off" />
                         <CgClose className="swap-on" />
                     </label>
-                    <div className="lg:hidden">
+                    <div className="lg:hidden flex justify-center">
                         <ToggleTheme />
                     </div>
                 </div>
@@ -51,11 +51,7 @@ const Navbar = () => {
                         {user?.uid ? (
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="avatar w-10 cursor-pointer">
-                                    <img
-                                        className="rounded-full"
-                                        src={`${user?.photoURL ? user.photoURL : "https://placeimg.com/192/192/people"}`}
-                                        alt=""
-                                    />
+                                    <img className="rounded-full" src={`${user?.photoURL ? user.photoURL : "https://placeimg.com/192/192/people"}`} alt="" />
                                 </label>
                                 <div
                                     tabIndex={0}
@@ -68,12 +64,11 @@ const Navbar = () => {
                                 </div>
                             </div>
                         ) : (
-                            <NavLink to="login" className="btn btn-primary">
+                            <NavLink to="Login" className="btn btn-sm btn-primary">
                                 Log In
                             </NavLink>
                         )}
-
-                        <div className="hidden lg:block ml-1">
+                        <div className="hidden lg:flex justify-center">
                             <ToggleTheme />
                         </div>
                     </div>

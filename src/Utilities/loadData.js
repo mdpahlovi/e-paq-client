@@ -2,7 +2,7 @@ import { getStroadCard } from "./addOrRemoveToDb";
 
 const loadData = async () => {
     // get Products
-    const productsData = await fetch("products.json");
+    const productsData = await fetch("https://epaq-server.vercel.app/products");
     const products = await productsData.json();
 
     // get cart

@@ -1,26 +1,25 @@
-import React, { useState } from "react";
-import { MdLightMode, MdDarkMode } from "react-icons/md";
+import React, { useContext, useEffect } from "react";
+import { RiSunFill, RiMoonFill } from "react-icons/ri";
+import { AuthContext } from "../context/UserContext";
 
-const ToggleTheme = ({ status }) => {
-    let dataTheme = document.documentElement.attributes[0];
-    const [toggle, setToggle] = useState(true);
-    const toggleTheme = () => {
-        setToggle(!toggle);
-        if (dataTheme.value === "light") {
-            dataTheme.value = "dark";
+function ThemeToggle() {
+    const { theme, setTheme } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (theme === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
         } else {
-            dataTheme.value = "light";
+            document.documentElement.removeAttribute("data-theme");
         }
-    };
-    return (
-        <div className={`border-l py-[6px] pl-5 flex items-center`}>
-            <label className="swap swap-rotate">
-                <input onClick={toggleTheme} type="checkbox" />
-                <MdLightMode className="swap-off text-3xl"></MdLightMode>
-                <MdDarkMode className="swap-on text-3xl"></MdDarkMode>
-            </label>
-        </div>
-    );
-};
+    }, [theme]);
 
-export default ToggleTheme;
+    return (
+        <label className="swap swap-rotate text-3xl pl-5 border-l-[1.5px] border-white">
+            <input onClick={() => setTimeout(() => setTheme(theme === "light" ? "dark" : "light"), 150)} type="checkbox" />
+            <RiSunFill className="swap-on" />
+            <RiMoonFill className="swap-off" />
+        </label>
+    );
+}
+
+export default ThemeToggle;

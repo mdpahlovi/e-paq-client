@@ -58,7 +58,17 @@ const UserContext = ({ children }) => {
         return () => unSubscribe();
     }, []);
 
-    const authInfo = { user, loading, createUser, signIn, signInByGoogle, signInByFacebook, signInByGithub, logOut };
+    // Get Theme Value
+    const [theme, setTheme] = useState(null);
+    useEffect(() => {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
+    }, []);
+
+    const authInfo = { user, loading, createUser, signIn, signInByGoogle, signInByFacebook, signInByGithub, logOut, theme, setTheme };
     return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 

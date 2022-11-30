@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ReviewCard from "./ReviewCard";
-import OrderSummary from "./OrderSummary";
+import ReviewCard from "../components/ReviewCard";
+import OrderSummary from "../components/OrderSummary";
 import { useLoaderData } from "react-router-dom";
-import { removeAllToDB, removeSeletedCardToDB } from "../Utilities/addOrRemoveToDb";
+import { removeAllToDB, removeSeletedCardToDB } from "../utilities/addOrRemoveToDb";
 import { BsCartCheckFill } from "react-icons/bs";
 
 const Review = () => {
@@ -30,8 +30,8 @@ const Review = () => {
                 Your Selected <span className="text-primary">Product</span>
             </h1>
             <p className="max-w-xl mx-auto text-center max-h-[72px] overflow-hidden">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore assumenda ut neque. Illo ipsa repellat numquam amet
-                possimus deserunt natus soluta cumque.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore assumenda ut neque. Illo ipsa repellat numquam amet possimus deserunt
+                natus soluta cumque.
             </p>
             <div className="flex justify-center gap-5">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">

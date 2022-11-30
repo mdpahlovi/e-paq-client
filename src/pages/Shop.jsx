@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ShopCard from "./ShopCard";
-import OrderSummary from "./OrderSummary";
-import { addToLoaclDb, removeAllToDB } from "../Utilities/addOrRemoveToDb";
+import ShopCard from "../components/ShopCard";
+import OrderSummary from "../components/OrderSummary";
+import { addToLoaclDb, removeAllToDB } from "../utilities/addOrRemoveToDb";
 import { MdRateReview } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
 
@@ -40,8 +40,8 @@ const Shop = () => {
                 Our Latest <span className="text-primary">Collection</span>
             </h1>
             <p className="max-w-xl mx-auto text-center max-h-[72px] overflow-hidden">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore assumenda ut neque. Illo ipsa
-                repellat numquam amet possimus deserunt natus soluta cumque.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore assumenda ut neque. Illo ipsa repellat numquam amet possimus deserunt
+                natus soluta cumque.
             </p>
             <div className="mt-3 grid grid-cols-1 sm:grid-cols-[auto_16rem] gap-5">
                 <div className="grid gap-5" style={{ gridTemplateColumns: "repeat( auto-fit, minmax(200px, 1fr) )" }}>
