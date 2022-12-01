@@ -51,7 +51,6 @@ const UserContext = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (correntUser) => {
-            console.log("Corrent User : ", correntUser);
             setUser(correntUser);
             setLoading(false);
         });

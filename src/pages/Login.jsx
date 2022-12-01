@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { BsGoogle, BsFacebook, BsGithub } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../context/UserContext";
 
 const Login = () => {
@@ -18,9 +19,8 @@ const Login = () => {
 
         signIn(email, password)
             .then((result) => {
-                const user = result.user;
-                console.log(user);
                 form.reset();
+                toast.success("User Login Done");
                 navigate(from, { replace: true });
             })
             .catch((error) => console.error(error));
@@ -29,8 +29,7 @@ const Login = () => {
     const handelGoogleSignIn = () => {
         signInByGoogle()
             .then((result) => {
-                const user = result.user;
-                console.log(user);
+                toast.success("Google Login Done");
                 navigate(from, { replace: true });
             })
             .catch((error) => console.error(error));
@@ -38,8 +37,7 @@ const Login = () => {
     const handelFacebookSignIn = () => {
         signInByFacebook()
             .then((result) => {
-                const user = result.user;
-                console.log(user);
+                toast.success("Facebook Login Done");
                 navigate(from, { replace: true });
             })
             .catch((error) => console.error(error));
@@ -47,8 +45,7 @@ const Login = () => {
     const handelGithubSignIn = () => {
         signInByGithub()
             .then((result) => {
-                const user = result.user;
-                console.log(user);
+                toast.success("Github Login Done");
                 navigate(from, { replace: true });
             })
             .catch((error) => console.error(error));

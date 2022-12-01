@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import { loadData } from "../utilities/loadData";
 import Main from "../layouts/Main";
 import Hero from "../components/Hero";
 import Shop from "../pages/Shop";
@@ -19,7 +18,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                loader: loadData,
+
                 element: (
                     <>
                         <Hero></Hero>
@@ -29,7 +28,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/review",
-                loader: loadData,
+
                 element: <Review />,
             },
             {

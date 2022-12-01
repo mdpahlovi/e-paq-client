@@ -16,7 +16,7 @@
         @apply text-4xl lg:text-5xl xxl:text-6xl font-bold;
     }
     .icon {
-        @apply flex justify-center items-center gap-1;
+        @apply flex justify-center items-center gap-2;
     }
     .vertical-line {
         @apply flex items-center before:flex-1 before:border-t  after:flex-1 after:border-t;

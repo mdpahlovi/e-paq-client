@@ -1,27 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReviewCard from "../components/ReviewCard";
 import OrderSummary from "../components/OrderSummary";
-import { useLoaderData } from "react-router-dom";
-import { removeAllToDB, removeSeletedCardToDB } from "../utilities/addOrRemoveToDb";
+import { Link } from "react-router-dom";
+import { removeAllToDB, removeSeletedCardToDB } from "../utilities/handelLocalDB";
 import { BsCartCheckFill } from "react-icons/bs";
+import { getStoredProducts } from "../apis/products";
+import { setQuantity } from "../utilities/products";
 
 const Review = () => {
-    const dynamicBtn = { route: "/checkout", text: "Proceed Checkout", icon: <BsCartCheckFill /> };
+    const [card, setCard] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [refresh, setRefresh] = useState(false);
 
-    const { initialCart } = useLoaderData();
-    const [card, setCard] = useState(initialCart);
+    useEffect(() => {
+        getStoredProducts()
+            .then(({ data, storedCart }) => {
+                const savedCart = setQuantity(data, storedCart);
+                setCard(savedCart);
+                setLoading(false);
+            })
+            .catch((error) => console.log(error));
+    }, [refresh]);
 
     // Remove This Card to display
     const removeThisCard = (id) => {
         const restCard = card.filter((card) => card.id !== id);
         setCard(restCard);
         removeSeletedCardToDB(id);
+        setRefresh(!refresh);
     };
 
     // Remove All Card to display
     const removeAll = () => {
         setCard([]);
         removeAllToDB();
+        setRefresh(!refresh);
     };
 
     return (
@@ -33,13 +46,20 @@ const Review = () => {
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore assumenda ut neque. Illo ipsa repellat numquam amet possimus deserunt
                 natus soluta cumque.
             </p>
-            <div className="flex justify-center gap-5">
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
-                    {card.map((selectedProduct) => (
-                        <ReviewCard key={selectedProduct.id} product={selectedProduct} removeThisCard={removeThisCard}></ReviewCard>
-                    ))}
+            <div className="grid grid-cols-1 sm:grid-cols-[auto_16rem] gap-5">
+                <div className={`grid grid-cols-1 xl:grid-cols-2 gap-5 ${loading ? "animate-pulse" : ""}`}>
+                    {loading
+                        ? [...Array(4)].map((name, index) => <div key={index} className="w-full h-40 bg-base-content/5  rounded-lg"></div>)
+                        : card.map((selectedProduct) => (
+                              <ReviewCard key={selectedProduct._id} product={selectedProduct} removeThisCard={removeThisCard}></ReviewCard>
+                          ))}
                 </div>
-                <OrderSummary card={card} removeAll={removeAll} dynamicBtn={dynamicBtn}></OrderSummary>
+                <OrderSummary card={card} removeAll={removeAll}>
+                    <Link className="btn btn-info icon" to="/checkout">
+                        Proceed Checkout
+                        <BsCartCheckFill />
+                    </Link>
+                </OrderSummary>
             </div>
         </div>
     );

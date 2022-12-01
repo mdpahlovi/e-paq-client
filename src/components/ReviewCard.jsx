@@ -2,9 +2,9 @@ import React from "react";
 import { RiDeleteBin5Fill, RiArrowDownCircleFill, RiArrowUpCircleFill } from "react-icons/ri";
 
 const ReviewCard = ({ product, removeThisCard }) => {
-    const { id, img, name, price, shipping, quantity } = product;
+    const { _id, img, name, price, shipping, quantity } = product;
     return (
-        <div className="p-3 h-max flex gap-3 items-center border border-base-200 rounded-lg">
+        <div className="p-3 h-max flex gap-3 items-center bg-base-content/5 rounded-lg">
             <img className="w-32 rounded-lg" src={img} alt="" />
             <div className="w-full">
                 <h5 className="text-lg font-bold line-clamp-2 group-hover:line-clamp-none">{name}</h5>
@@ -22,7 +22,7 @@ const ReviewCard = ({ product, removeThisCard }) => {
                 <button>
                     <RiArrowUpCircleFill />
                 </button>
-                <button onClick={() => removeThisCard(id)} className="text-[#FF3030]">
+                <button onClick={() => removeThisCard(_id)} className="text-[#FF3030]">
                     <RiDeleteBin5Fill />
                 </button>
                 <button>

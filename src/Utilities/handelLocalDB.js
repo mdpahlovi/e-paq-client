@@ -1,5 +1,5 @@
 const addToLoaclDb = (id) => {
-    const card = getStroadCard();
+    const card = getStoredCart();
     const quantity = card[id];
     if (quantity) {
         card[id] = quantity + 1;
@@ -9,7 +9,7 @@ const addToLoaclDb = (id) => {
     localStorage.setItem("card", JSON.stringify(card));
 };
 
-const getStroadCard = () => {
+const getStoredCart = () => {
     let card = {};
     const stroedCard = localStorage.getItem("card");
     if (stroedCard) {
@@ -33,4 +33,4 @@ const removeAllToDB = () => {
     localStorage.removeItem("card");
 };
 
-export { getStroadCard, addToLoaclDb, removeSeletedCardToDB, removeAllToDB };
+export { getStoredCart, addToLoaclDb, removeSeletedCardToDB, removeAllToDB };

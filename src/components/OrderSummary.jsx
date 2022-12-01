@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { AiOutlineClear } from "react-icons/ai";
 import { SiClickup } from "react-icons/si";
 import { GoEyeClosed } from "react-icons/go";
-import { Link } from "react-router-dom";
 
-const OrderSummary = ({ card, removeAll, dynamicBtn }) => {
-    const { route, text, icon } = dynamicBtn;
-
+const OrderSummary = ({ card, removeAll, children }) => {
     // Calculation
     let totalPrice = 0;
     let totalShippingCharge = 0;
@@ -37,16 +34,10 @@ const OrderSummary = ({ card, removeAll, dynamicBtn }) => {
                         Clear Card
                         <AiOutlineClear />
                     </button>
-                    <Link to={route} className="icon btn btn-info text-white">
-                        {text}
-                        {icon}
-                    </Link>
+                    {children}
                 </div>
             </div>
-            <span
-                className="fixed bottom-2 right-2 text-2xl border-2 border-dark rounded-full p-1 cursor-pointer sm:hidden"
-                onClick={() => setToggle(!toggle)}
-            >
+            <span className="fixed bottom-2 right-2 text-2xl border-2 border-dark rounded-full p-1 cursor-pointer sm:hidden" onClick={() => setToggle(!toggle)}>
                 {toggle ? <SiClickup /> : <GoEyeClosed />}
             </span>
         </>

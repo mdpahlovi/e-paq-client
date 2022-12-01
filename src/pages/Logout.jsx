@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getThemeValue } from "../utilities/getThemeValue";
 
 const Logout = () => {
     const { createUser } = useContext(AuthContext);
@@ -15,16 +14,8 @@ const Logout = () => {
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
 
-        if (password.length < 6) {
-            toast.error("OPPS ! Password sould be 6 cherecter or more", {
-                theme: getThemeValue(),
-            });
-            return;
-        }
         if (password !== confirmPassword) {
-            toast.error("OPPS ! Your password didn't match", {
-                theme: getThemeValue(),
-            });
+            toast.error("Your password didn't match");
             return;
         }
 
