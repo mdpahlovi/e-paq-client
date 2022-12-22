@@ -12,6 +12,7 @@ const Review = () => {
     const [loading, setLoading] = useState(true);
     const [refresh, setRefresh] = useState(false);
 
+    // Get Cart By Stored Ids & Set Quantity
     useEffect(() => {
         getStoredProducts()
             .then(({ data, storedCart }) => {

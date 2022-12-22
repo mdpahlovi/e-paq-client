@@ -8,7 +8,6 @@ import { getStoredProducts } from "../apis/products";
 import { setQuantity } from "../utilities/products";
 
 const Shop = () => {
-    // const { products, count } = useLoaderData();
     const [products, setProducts] = useState([]);
     const [count, setCount] = useState(0);
     const [loading, setLoading] = useState(true);
@@ -17,6 +16,7 @@ const Shop = () => {
     const [size, setSize] = useState(12);
     const pages = Math.ceil(count / size);
 
+    // Get Product by Page number & Page Size
     useEffect(() => {
         const url = `https://epaq-server.vercel.app/products?page=${page}&size=${size}`;
         fetch(url)
@@ -28,6 +28,7 @@ const Shop = () => {
             });
     }, [page, size]);
 
+    // Get Cart By Stored Ids
     useEffect(() => {
         getStoredProducts()
             .then(({ data, storedCart }) => {
@@ -60,7 +61,7 @@ const Shop = () => {
     };
 
     return (
-        <div className="my-container pt-0 section-gap content-gap">
+        <div className="my-container content-gap">
             <h1 className="heading-text text-center">
                 Our Latest <span className="text-primary">Collection</span>
             </h1>
@@ -81,7 +82,7 @@ const Shop = () => {
                     </Link>
                 </OrderSummary>
             </div>
-            <div className="flex justify-center gap-6 mt-8">
+            <div className="flex justify-center gap-6 mt-4">
                 <div className="btn-group">
                     {[...Array(pages).keys()].map((number) => (
                         <button key={number} className={page === number ? "btn btn-active" : "btn"} onClick={() => setPage(number)}>

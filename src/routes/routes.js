@@ -23,6 +23,7 @@ export const router = createBrowserRouter([
                     <>
                         <Hero></Hero>
                         <Shop />
+                        <Contact />
                     </>
                 ),
             },
